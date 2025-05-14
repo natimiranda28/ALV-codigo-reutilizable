@@ -66,42 +66,42 @@ FORM f_show_alv.
 *     I_CALLBACK_HTML_END_OF_LIST = ' '	"Añade contenido HTML al final de la lista.
 *     I_STRUCTURE_NAME =		"Nombre de una estructura (en el ABAP Dictionary) que define los campos del ALV.
 *     I_BACKGROUND_ID = ' '		"ID para ejecutar el ALV en segundo plano con un diseño específico.
-*     I_GRID_TITLE =			"
-*     I_GRID_SETTINGS =
-      is_layout = gs_layout
-      it_fieldcat = gt_catalog[]
-*     IT_EXCLUDING  =
-*     IT_SPECIAL_GROUPS =
-*     IT_SORT =
-*     IT_FILTER =
-*     IS_SEL_HIDE =
-*     I_DEFAULT = 'X'
-*     I_SAVE = ' '
-*     IS_VARIANT =
-*     IT_EVENTS =
-*     IT_EVENT_EXIT =
-*     IS_PRINT =
-*     IS_REPREP_ID =
-*     I_SCREEN_START_COLUMN = 0
-*     I_SCREEN_START_LINE = 0
-*     I_SCREEN_END_COLUMN = 0
-*     I_SCREEN_END_LINE = 0
-*     I_HTML_HEIGHT_TOP = 0
-*     I_HTML_HEIGHT_END = 0
-*     IT_ALV_GRAPHICS =
-*     IT_HYPERLINK =
-*     IT_ADD_FIELDCAT =
-*     IT_EXCEPT_QINFO =
-*     IR_SALV_FULLSCREEN_ADAPTER =
-*     O_PREVIOUS_SRAL_HANDLER =
+*     I_GRID_TITLE =			"Define un título para el ALV. Útil para identificar listas de manera visual.
+*     I_GRID_SETTINGS =			"Tabla o estructura con configuraciones avanzadas para el grid (columnas fijas, interactividad, etc.).
+      is_layout = gs_layout		"Define el diseño del ALV (cebra, títulos, etc.).
+      it_fieldcat = gt_catalog[]	"Catálogo de campos que define qué datos y columnas se mostrarán.
+*     IT_EXCLUDING  =			"Lista de columnas que deseas excluir del ALV, si las defines en el catálogo de campos.
+*     IT_SPECIAL_GROUPS =		"Permite agrupar datos en base a valores específicos para mejorar la visualización.
+*     IT_SORT =				"Define las reglas de ordenamiento inicial para las columnas (ascendente, descendente).
+*     IT_FILTER =			"Permite aplicar filtros iniciales a los datos que se mostrarán en el ALV.
+*     IS_SEL_HIDE =			"Esconde columnas que el usuario no debería ver inicialmente (pero están disponibles en la tabla)
+*     I_DEFAULT = 'X'			"Aplica configuraciones estándar.
+*     I_SAVE = ' '			"Permite guardar configuraciones personalizadas del ALV (como vistas, orden, filtros) para el usuario.
+*     IS_VARIANT =			"Permite cargar variantes predefinidas para personalizar el contenido y diseño del ALV.
+*     IT_EVENTS =			"Lista de eventos específicos que puedes manejar (como doble clic en una celda).
+*     IT_EVENT_EXIT =			"Define eventos para finalizar procesos dentro del ALV.
+*     IS_PRINT =			"Configuración para imprimir directamente desde el ALV.
+*     IS_REPREP_ID =			"Define un ID para la representación de datos en diferentes vistas.
+*     I_SCREEN_START_COLUMN = 0		"Posición inicial de la columna donde comienza el ALV en la pantalla.
+*     I_SCREEN_START_LINE = 0		"Línea inicial de la pantalla donde aparece el ALV.
+*     I_SCREEN_END_COLUMN = 0		"Columna final para limitar el ancho del ALV.
+*     I_SCREEN_END_LINE = 0		"Línea final para limitar el alto del ALV.
+*     I_HTML_HEIGHT_TOP = 0		"Altura del contenido HTML en la parte superior del ALV.
+*     I_HTML_HEIGHT_END = 0		"Altura del contenido HTML al final del ALV.
+*     IT_ALV_GRAPHICS =			"Permite incrustar gráficos y visualizaciones en el ALV.
+*     IT_HYPERLINK =			"Define enlaces que los usuarios pueden hacer clic en las columnas del ALV.
+*     IT_ADD_FIELDCAT =			"Añade campos adicionales dinámicamente al catálogo de campos.
+*     IT_EXCEPT_QINFO =			"Excluye información específica en caso de excepciones.
+*     IR_SALV_FULLSCREEN_ADAPTER =	"Objeto adaptador para manejar ALV a pantalla completa con el framework SALV.
+*     O_PREVIOUS_SRAL_HANDLER =		"Permite reutilizar un handler previo para manejar sesiones ALV.
 * IMPORTING
-*     E_EXIT_CAUSED_BY_CALLER =
-*     ES_EXIT_CAUSED_BY_USER =
+*     E_EXIT_CAUSED_BY_CALLER =		"Indica si el usuario cerró el ALV por una acción específica del programa.
+*     ES_EXIT_CAUSED_BY_USER =		"Contiene información sobre cómo el usuario finalizó la visualización del ALV.
     TABLES
-      t_outtab = gt_vuelos[]
+      t_outtab = gt_vuelos[]		"Tabla interna con los datos que se mostrarán en el ALV.
     EXCEPTIONS
-      program_error = 1
-      OTHERS = 2.
+      program_error = 1			"Error específico del programa.
+      OTHERS = 2.			"Cualquier otro error no especificado.
   IF sy-subrc <> 0.
 * Implement suitable error handling here
   ENDIF.
